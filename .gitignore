@@ -26,5 +26,13 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
-# Generated data (optional, if you don't want PDFs in Git)
+# Generated data (regenerable from data/chunks/ + scripts)
 data/pdfs/
+data/text/
+data/clean_text/
+data/vector_db/
+
+# Raw scraper debug snapshots
+403.html
+judgment_page.html
+search_result.html
