@@ -36,7 +36,7 @@ class ChromaStore:
 
         self.collection.add(
             ids=[document_id],
-            embeddings=[embedding.tolist()],
+            embeddings=[list(embedding)],
             documents=[text],
             metadatas=[metadata]
         )
@@ -53,7 +53,7 @@ class ChromaStore:
         metadatas: list[dict]
     ):
 
-        embeddings = [embedding.tolist() for embedding in embeddings]
+        embeddings = [list(embedding) for embedding in embeddings]
 
         self.collection.add(
             ids=ids,
@@ -73,7 +73,7 @@ class ChromaStore:
     ):
 
         return self.collection.query(
-            query_embeddings=[embedding.tolist()],
+            query_embeddings=[list(embedding)],
             n_results=top_k
         )
 

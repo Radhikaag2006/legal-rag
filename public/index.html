@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nyaya — Indian case-law research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app" id="app">
+
+  <!-- ===== Sidebar: chat history ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="side-top">
+      <div class="brand">Nyaya</div>
+      <button class="new-chat" id="newChat">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        New chat
+      </button>
+      <div class="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="chatSearch" type="search" placeholder="Search chats" autocomplete="off">
+      </div>
+    </div>
+    <nav class="chat-list" id="chatList" aria-label="Chat history"></nav>
+    <div class="side-foot" id="corpusInfo"></div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <!-- ===== Main ===== -->
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open chat history">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <h1 id="chatTitle">New chat</h1>
+      <button class="tool-btn" id="summaryBtn" disabled title="Summarise this chat's research as a PDF or Word document">
+        <svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>
+        <span>Summary</span>
+      </button>
+      <div class="seg" id="modeSeg" role="group" aria-label="Answer style">
+        <button data-mode="lawyer" title="Issue, rule, analysis and caveats">Lawyer</button>
+        <button data-mode="student" title="Plain-language explanation with key terms">Student</button>
+      </div>
+    </header>
+
+    <section class="thread" id="thread">
+      <div class="thread-inner" id="threadInner"></div>
+    </section>
+
+    <footer class="composer-wrap">
+      <div class="composer" id="composer">
+        <div class="file-chips" id="fileChips"></div>
+        <textarea id="input" rows="1" placeholder="Ask a legal question, or upload a document and ask about it" aria-label="Your question"></textarea>
+        <div class="composer-row">
+          <button class="tool" id="attachBtn" title="Upload a PDF, Word or text file">
+            <svg viewBox="0 0 24 24"><path d="m21 11-9.2 9.2a5.5 5.5 0 0 1-7.8-7.8l9.2-9.2a3.7 3.7 0 0 1 5.2 5.2l-9.2 9.2a1.8 1.8 0 0 1-2.6-2.6L15.8 6"/></svg>
+            Attach
+          </button>
+          <button class="tool" id="filterBtn" aria-haspopup="true">
+            <svg viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+            Filters<span class="dot" id="filterDot" hidden></span>
+          </button>
+          <span class="spacer"></span>
+          <button class="send" id="sendBtn" aria-label="Send" disabled>
+            <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
+        </div>
+        <div class="popover" id="filterPop" hidden>
+          <label class="pop-label">Court</label>
+          <div class="court-list" id="courtList"></div>
+          <div class="pop-grid">
+            <div><label class="pop-label" for="yearMin">From year</label><input type="number" id="yearMin"></div>
+            <div><label class="pop-label" for="yearMax">To year</label><input type="number" id="yearMax"></div>
+            <div><label class="pop-label" for="topK">Passages</label>
+              <select id="topK"><option>3</option><option selected>5</option><option>7</option><option>10</option></select></div>
+          </div>
+          <button class="link-btn" id="clearFilters">Reset filters</button>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,.docx,.txt" multiple hidden>
+      </div>
+      <p class="fine">AI-assisted research based only on the indexed judgments. Verify every authority against the official report before relying on it. Not legal advice.</p>
+    </footer>
+  </main>
+
+  <!-- ===== Viewer: judgment PDF ===== -->
+  <aside class="viewer" id="viewer" aria-label="Document viewer">
+    <div class="viewer-head">
+      <div class="viewer-title">
+        <strong id="vTitle"></strong>
+        <span id="vSub"></span>
+      </div>
+      <a class="icon-btn" id="vOpen" target="_blank" rel="noopener" title="Open in new tab">
+        <svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      </a>
+      <button class="icon-btn" id="vClose" aria-label="Close viewer">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <details class="passage" id="vPassage" open>
+      <summary>Passage used in the answer</summary>
+      <div id="vPassageText"></div>
+    </details>
+    <div class="viewer-body" id="vBody"></div>
+  </aside>
+</div>
+
+<!-- ===== Summary dialog ===== -->
+<div class="modal-scrim" id="sumModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sumTitle">
+    <div class="modal-head">
+      <h2 id="sumTitle">Research summary</h2>
+      <button class="icon-btn" id="sumClose" aria-label="Close">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="sumBody"></div>
+    <div class="modal-foot" id="sumFoot" hidden>
+      <span class="verify" id="sumVerify"></span>
+      <span class="spacer"></span>
+      <button class="ghost" id="sumCopy">Copy</button>
+      <button class="ghost" id="sumDocx">Download Word</button>
+      <button class="solid" id="sumPdf">Download PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+<script src="/app.js"></script>
+</body>
+</html>

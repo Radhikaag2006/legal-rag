@@ -13,14 +13,21 @@ pymupdf==1.28.0
 # Chunking
 langchain-text-splitters==1.1.2
 
-# Embeddings
-sentence-transformers==5.6.0
-
-# Vector database
-chromadb==1.5.9
-
-# LLM
+# LLM + embeddings (Gemini)
 google-generativeai==0.8.6
+
+# Reranking
+cohere==5.20.0
+
+# Postgres + pgvector
+psycopg[binary]==3.2.4
+psycopg-pool==3.2.4
 
 # Frontend
 streamlit==1.59.2
+
+# Web app
+fastapi==0.165.0
+uvicorn==0.51.0
+python-multipart==0.0.32
+python-docx==1.2.0

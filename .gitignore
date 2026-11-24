@@ -36,3 +36,6 @@ data/vector_db/
 403.html
 judgment_page.html
 search_result.html
+# User data
+data/app.db
+data/uploads/

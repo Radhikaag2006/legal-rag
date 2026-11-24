@@ -1,5 +1,6 @@
 from embeddings.embedding_model import EmbeddingModel
-from embeddings.chroma_store import ChromaStore
+from embeddings.pg_vector_store import PgVectorStore
+from reranker.reranker import Reranker
 
 import logging
 
@@ -13,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 class Retriever:
     """
-    Retrieves the most relevant chunks from ChromaDB.
+    Retrieves the most relevant chunks from Postgres/pgvector.
     """
 
     def __init__(self):
@@ -22,7 +23,7 @@ class Retriever:
 
         self.embedding_model = EmbeddingModel()
 
-        self.vector_db = ChromaStore()
+        self.vector_db = PgVectorStore()
 
         logger.info("Retriever Ready.\n")
 
@@ -37,33 +38,20 @@ class Retriever:
 
         query_embedding = self.embedding_model.embed_text(query)
 
-        results = self.vector_db.query(
+        rows = self.vector_db.query(
             embedding=query_embedding,
             top_k=top_k
         )
 
-        retrieved_chunks = []
-
-        documents = results["documents"][0]
-        metadatas = results["metadatas"][0]
-        distances = results["distances"][0]
-
-        for document, metadata, distance in zip(
-            documents,
-            metadatas,
-            distances
-        ):
-
-            retrieved_chunks.append(
-                {
-                    "text": document,
-                    "document_id": metadata.get("document_id"),
-                    "chunk_id": metadata.get("chunk_id"),
-                    "case_title": metadata.get("case_title"),
-                    "court": metadata.get("court"),
-                    "date": metadata.get("date"),
-                    "distance": distance
-                }
-            )
-
-        return retrieved_chunks
+        return [
+            {
+                "text": row["text"],
+                "document_id": row["document_id"],
+                "chunk_id": row["chunk_id"],
+                "case_title": row["case_title"],
+                "court": row["court"],
+                "date": row["date"],
+                "distance": row["distance"],
+            }
+            for row in rows
+        ]

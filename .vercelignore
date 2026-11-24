@@ -1,0 +1,9 @@
+data/
+scraper/
+chunking/
+cleaning/
+evaluation/
+frontend/
+preprocessing/reindex_to_postgres.py
+.venv/
+venv/

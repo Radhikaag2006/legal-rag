@@ -1,112 +1,201 @@
 [
     {
         "id": 1,
-        "category": "Article",
-        "question": "What is Article 14 of the Constitution?"
+        "category": "Fundamental Rights",
+        "question": "What is Article 14 of the Constitution?",
+        "relevant_doc_ids": [
+            "799151",
+            "1939993",
+            "1186368"
+        ]
     },
     {
         "id": 2,
-        "category": "Article",
-        "question": "Explain Article 19."
+        "category": "Fundamental Rights",
+        "question": "What is the doctrine of reasonable classification?",
+        "relevant_doc_ids": [
+            "681436",
+            "1186368",
+            "309064"
+        ]
     },
     {
         "id": 3,
-        "category": "Article",
-        "question": "What does Article 21 guarantee?"
+        "category": "Basic Structure",
+        "question": "What is the Basic Structure Doctrine?",
+        "relevant_doc_ids": [
+            "102852",
+            "1939993"
+        ]
     },
     {
         "id": 4,
-        "category": "Legal Concept",
-        "question": "What is the doctrine of reasonable classification?"
+        "category": "Basic Structure",
+        "question": "Can Parliament amend Fundamental Rights?",
+        "relevant_doc_ids": [
+            "120358",
+            "1308308"
+        ]
     },
     {
         "id": 5,
-        "category": "Legal Concept",
-        "question": "Explain equality before law."
+        "category": "Directive Principles",
+        "question": "What is the relationship between Fundamental Rights and Directive Principles?",
+        "relevant_doc_ids": [
+            "1939993",
+            "120358"
+        ]
     },
     {
         "id": 6,
-        "category": "Legal Concept",
-        "question": "What is equal protection of laws?"
+        "category": "Equality",
+        "question": "What does equality before law mean?",
+        "relevant_doc_ids": [
+            "102852",
+            "1939993",
+            "141126788",
+            "748977"
+        ]
     },
     {
         "id": 7,
-        "category": "Legal Concept",
-        "question": "How does Article 14 prevent discrimination?"
+        "category": "Equality",
+        "question": "What is equal protection of laws?",
+        "relevant_doc_ids": [
+            "141126788",
+            "1939993",
+            "681436",
+            "102852",
+            "748977"
+        ]
     },
     {
         "id": 8,
-        "category": "Judgment",
-        "question": "Explain the Kesavananda Bharati judgment."
+        "category": "Reservation",
+        "question": "Explain reservation under Article 16.",
+        "relevant_doc_ids": [
+            "102852"
+        ]
     },
     {
         "id": 9,
-        "category": "Judgment",
-        "question": "Explain the Minerva Mills judgment."
+        "category": "Judicial Review",
+        "question": "What is judicial review?",
+        "relevant_doc_ids": [
+            "139734870",
+            "1152518",
+            "499867"
+        ]
     },
     {
         "id": 10,
-        "category": "Judgment",
-        "question": "What was held in the Golak Nath case?"
+        "category": "Constitution",
+        "question": "What is the significance of the Kesavananda Bharati judgment?",
+        "relevant_doc_ids": [
+            "499867",
+            "799151",
+            "1939993"
+        ]
     },
     {
         "id": 11,
-        "category": "Judgment",
-        "question": "Explain the Waman Rao judgment."
+        "category": "Constitution",
+        "question": "Why is the Golak Nath judgment important?",
+        "relevant_doc_ids": [
+            "799151",
+            "21266288",
+            "1939993"
+        ]
     },
     {
         "id": 12,
-        "category": "Judgment",
-        "question": "What is the significance of the Ajay Hasia case?"
+        "category": "Constitution",
+        "question": "What did the Minerva Mills judgment decide?",
+        "relevant_doc_ids": [
+            "799151",
+            "1152518",
+            "1939993"
+        ]
     },
     {
         "id": 13,
-        "category": "Comparison",
-        "question": "Compare the Golak Nath and Kesavananda Bharati judgments."
+        "category": "Equality",
+        "question": "What makes a classification reasonable under Article 14?",
+        "relevant_doc_ids": [
+            "681436",
+            "1186368",
+            "309064",
+            "102852"
+        ]
     },
     {
         "id": 14,
-        "category": "Comparison",
-        "question": "Compare Articles 14, 19 and 21."
+        "category": "Fundamental Rights",
+        "question": "What protection does Article 19 provide?",
+        "relevant_doc_ids": [
+            "21266288",
+            "1939993",
+            "799151",
+            "110957682"
+        ]
     },
     {
         "id": 15,
-        "category": "Reasoning",
-        "question": "Explain the evolution of Parliament's power to amend the Constitution."
+        "category": "Fundamental Rights",
+        "question": "How are Articles 14 and 21 related?",
+        "relevant_doc_ids": [
+            "1939993",
+            "199141576",
+            "143202244"
+        ]
     },
     {
         "id": 16,
-        "category": "Reasoning",
-        "question": "How has the Supreme Court interpreted Article 14 over time?"
+        "category": "Constitution",
+        "question": "What are the limits on Parliament's amendment powers?",
+        "relevant_doc_ids": [
+            "1939993",
+            "21266288",
+            "499867",
+            "799151"
+        ]
     },
     {
         "id": 17,
-        "category": "Reasoning",
-        "question": "Which Supreme Court judgments discuss Article 14?"
+        "category": "Directive Principles",
+        "question": "Can Directive Principles override Fundamental Rights?",
+        "relevant_doc_ids": [
+            "1939993",
+            "120358"
+        ]
     },
     {
         "id": 18,
-        "category": "Reasoning",
-        "question": "Which landmark judgments discuss the Basic Structure Doctrine?"
+        "category": "Reservation",
+        "question": "What did the M. Nagaraj judgment say about reservations?",
+        "relevant_doc_ids": [
+            "102852"
+        ]
     },
     {
         "id": 19,
-        "category": "Reasoning",
-        "question": "Can Parliament amend Fundamental Rights?"
+        "category": "Equality",
+        "question": "When can the State classify different groups of people?",
+        "relevant_doc_ids": [
+            "102852",
+            "309064",
+            "1186368",
+            "681436"
+        ]
     },
     {
         "id": 20,
-        "category": "Negative Test",
-        "question": "Who is the current Chief Justice of India?"
-    },
-    {
-        "id": 21,
-        "category": "Negative Test",
-        "question": "Who won the Cricket World Cup 2023?"
-    },
-    {
-        "id": 22,
-        "category": "Negative Test",
-        "question": "What is Machine Learning?"
+        "category": "Constitution",
+        "question": "Which judgments discuss the Basic Structure of the Constitution?",
+        "relevant_doc_ids": [
+            "1152518",
+            "1908856",
+            "1939993"
+        ]
     }
 ]

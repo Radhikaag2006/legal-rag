@@ -14,6 +14,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 # Import your RAG pipeline
 from rag.rag_pipeline import RAGPipeline
 
+# Gemini free tier allows 5 requests/minute for gemini-2.5-flash
+REQUEST_DELAY_SECONDS = 13
+
 
 def main():
 
@@ -46,7 +49,7 @@ def main():
         print("Running RAG Evaluation...")
         print("=" * 100)
 
-        for item in questions:
+        for index, item in enumerate(questions):
 
             question = item["question"]
 
@@ -80,7 +83,7 @@ def main():
                     response_time
                 ])
 
-                print(f"✅ Completed ({response_time} sec)")
+                print(f"[OK] Completed ({response_time} sec)")
 
             except Exception as e:
 
@@ -94,7 +97,10 @@ def main():
                     0
                 ])
 
-                print(f"❌ Failed: {e}")
+                print(f"[FAILED] {e}")
+
+            if index < len(questions) - 1:
+                time.sleep(REQUEST_DELAY_SECONDS)
 
     print("\n")
     print("=" * 100)
