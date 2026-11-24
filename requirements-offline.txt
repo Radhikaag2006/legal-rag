@@ -1,0 +1,20 @@
+# Extra dependencies needed only for local/offline work — the scraper,
+# the old Streamlit UI (frontend/), and the one-time Chroma -> Postgres
+# reindex script. None of these are needed to run or deploy app.py, so
+# they're kept out of requirements.txt to keep the Vercel bundle small.
+#
+# Install with: pip install -r requirements.txt -r requirements-offline.txt
+
+# Scraping
+beautifulsoup4==4.15.0
+lxml==6.1.1
+
+# Data handling (scraper CSV checkpoints, embedder.py)
+pandas==3.0.3
+
+# Old Streamlit frontend (frontend/) — superseded by web app in public/ + app.py
+streamlit==1.59.2
+
+# Needed only to read the legacy local Chroma store in
+# preprocessing/reindex_to_postgres.py
+chromadb==1.5.9

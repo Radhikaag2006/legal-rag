@@ -1,14 +1,10 @@
-# Scraping
-beautifulsoup4==4.15.0
-lxml==6.1.1
+# Networking / config
 requests==2.34.2
-
-# Data handling
-pandas==3.0.3
 python-dotenv==1.2.2
 
-# PDF text extraction
+# PDF / DOCX text extraction (used by rag/uploads.py, api/export.py, api/pdfs.py)
 pymupdf==1.28.0
+python-docx==1.2.0
 
 # Chunking
 langchain-text-splitters==1.1.2
@@ -23,11 +19,7 @@ cohere==5.20.0
 psycopg[binary]==3.2.4
 psycopg-pool==3.2.4
 
-# Frontend
-streamlit==1.59.2
-
 # Web app
 fastapi==0.165.0
 uvicorn==0.51.0
 python-multipart==0.0.32
-python-docx==1.2.0

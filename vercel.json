@@ -4,10 +4,5 @@
     "app.py": {
       "maxDuration": 60
     }
-  },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/app.py" },
-    { "source": "/pdf/(.*)", "destination": "/app.py" },
-    { "source": "/files/(.*)", "destination": "/app.py" }
-  ]
+  }
 }
